@@ -63,17 +63,22 @@ function articleCard(a) {
 }
 
 function topbar() {
-  return `<header class="topbar">
-  <a href="/" class="brand">
-    <div class="brand-dot"></div>
-    <span class="brand-name">Trust Center</span>
-  </a>
-  <nav class="topbar-nav">
-    <a href="/articles" class="nav-link">Articles</a>
-    <a href="/pricing" class="nav-link">Pricing</a>
-    <a href="mailto:hello@trustcenter.pro" class="nav-cta">Get early access</a>
-  </nav>
-</header>`;
+  return `<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:14px;color:#F5F7F4;letter-spacing:-0.01em;text-decoration:none">
+      <span style="width:18px;height:18px;border-radius:4px;background:#F59F0A;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">
+        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="#08090B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+      </span>
+      <span>trustcenter<span style="color:#F59F0A">.pro</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/pricing" class="nav-link">Pricing</a>
+      <a href="/articles" class="nav-link active">Articles</a>
+      <a href="https://motivation.digital/trust-center/" class="nav-link" target="_blank" rel="noopener">Live demo</a>
+      <a href="https://trustcenter.pro" class="nav-btn">Join waitlist &rarr;</a>
+    </div>
+  </div>
+</nav>`;
 }
 
 function sidebar(activeCategory, showSearch) {
@@ -127,10 +132,10 @@ a{color:#F59F0A;text-decoration:none}a:hover{text-decoration:underline}
 .nav-cta:hover{background:rgba(245,159,10,0.2);text-decoration:none;color:#F59F0A}
 
 /* ── Page shell ────────────────────────────────────────────────────────────── */
-.page-shell{display:flex;min-height:100vh;padding-top:52px}
+.page-shell{display:flex;min-height:100vh;padding-top:64px}
 
 /* ── Sidebar ────────────────────────────────────────────────────────────────── */
-.sidebar{width:240px;flex-shrink:0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;border-right:1px solid #1a1a1a;background:#0d0d0d}
+.sidebar{width:240px;flex-shrink:0;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto;border-right:1px solid #1a1a1a;background:#0d0d0d}
 .sidebar-inner{padding:24px 16px 40px}
 .sidebar-brand{margin-bottom:4px}
 .sidebar-section-label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#404040;padding:0 8px;margin-bottom:6px}
@@ -172,7 +177,7 @@ a{color:#F59F0A;text-decoration:none}a:hover{text-decoration:underline}
 
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">`;
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">`;
 
 export function renderArticleListing(articles, activeCategory) {
   const active = activeCategory || '';
