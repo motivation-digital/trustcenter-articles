@@ -20,12 +20,7 @@ export default {
       }
 
       if (url.pathname === '/articles' || url.pathname === '/articles/') {
-        const { results } = await env.DB.prepare(
-          `SELECT id, slug, title, excerpt, category, reading_time, published_at
-           FROM articles WHERE status = 'published'
-           ORDER BY published_at DESC`
-        ).all();
-        return html(renderArticleListing(results || [], ''));
+        return Response.redirect(url.origin + '/articles/category/gdpr', 302);
       }
 
       const catMatch = url.pathname.match(/^\/articles\/category\/([a-z0-9-]+)\/?$/);
