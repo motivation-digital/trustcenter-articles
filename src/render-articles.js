@@ -23,10 +23,13 @@ const CATEGORY_LABELS = {
 };
 
 const CATEGORIES = [
-  'gdpr', 'cookies', 'ccpa', 'privacy-policy', 'dsar',
-  'usa', 'canada', 'australia', 'eu', 'uk', 'accessibility',
-  'setup', 'policy', 'ecommerce', 'checklist', 'data-breach', 'industry',
-  'services', 'general',
+  // General & guides
+  'general', 'services', 'setup', 'policy', 'checklist',
+  // Policy types
+  'gdpr', 'ccpa', 'privacy-policy', 'dsar', 'cookies',
+  'data-breach', 'accessibility', 'ecommerce', 'industry',
+  // Regions
+  'uk', 'eu', 'usa', 'canada', 'australia',
 ];
 
 function injectHeadingIds(html) {
@@ -75,7 +78,7 @@ function topbar() {
 
 function sidebar(activeCategory, showSearch) {
   const allActive = (activeCategory || '') === '';
-  const allLink = `<a href="/articles/category/gdpr" class="sidebar-link${allActive ? ' active' : ''}">All articles</a>`;
+  const allLink = `<a href="/articles/all" class="sidebar-link${allActive ? ' active' : ''}">All articles</a>`;
 
   const catLinks = CATEGORIES.map(cat => {
     const href = `/articles/category/${cat}`;
