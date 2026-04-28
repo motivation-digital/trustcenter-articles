@@ -74,10 +74,12 @@ function topbar() {
 }
 
 function sidebar(activeCategory, showSearch) {
-  const catLinks = ['', ...CATEGORIES].map(cat => {
-    const label = cat ? (CATEGORY_LABELS[cat] || cat) : 'All articles';
-    const href = cat ? `/articles/category/${cat}` : '/articles';
-    return `<a href="${href}" class="sidebar-link${cat === (activeCategory || '') ? ' active' : ''}">${esc(label)}</a>`;
+  const allActive = (activeCategory || '') === '';
+  const allLink = `<a href="/articles/category/gdpr" class="sidebar-link${allActive ? ' active' : ''}">All articles</a>`;
+
+  const catLinks = CATEGORIES.map(cat => {
+    const href = `/articles/category/${cat}`;
+    return `<a href="${href}" class="sidebar-link${cat === (activeCategory || '') ? ' active' : ''}">${esc(CATEGORY_LABELS[cat] || cat)}</a>`;
   }).join('\n');
 
   const searchHtml = showSearch ? `<div class="sidebar-search">
@@ -90,6 +92,7 @@ function sidebar(activeCategory, showSearch) {
     <div class="sidebar-brand">
       <span class="sidebar-section-label">Knowledge Base</span>
     </div>
+    <nav class="sidebar-nav" style="margin-bottom:12px">${allLink}</nav>
     ${searchHtml}
     <div class="sidebar-section-label" style="margin-top:20px">Categories</div>
     <nav class="sidebar-nav">${catLinks}</nav>
@@ -100,7 +103,7 @@ function sidebar(activeCategory, showSearch) {
 function siteFooter() {
   return `<footer class="site-footer">
   <span>&copy; ${new Date().getFullYear()} Trust Center &mdash; A Motivation Group product</span>
-  <span><a href="/articles">Articles</a> &middot; <a href="mailto:hello@trustcenter.pro">Contact</a></span>
+  <span><a href="/articles">Articles</a></span>
 </footer>`;
 }
 
