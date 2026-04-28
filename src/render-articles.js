@@ -120,17 +120,16 @@ const BASE = `
 html,body{margin:0;padding:0;background:#0A0A0A;color:#E5E5E5;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;height:100%}
 a{color:#F59F0A;text-decoration:none}a:hover{text-decoration:underline}
 
-/* ── Topbar ───────────────────────────────────────────────────────────────── */
-.topbar{height:52px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #1a1a1a;background:#0A0A0A;position:fixed;top:0;left:0;right:0;z-index:200}
-.brand{display:flex;align-items:center;gap:8px;color:#E5E5E5;font-weight:600;font-size:14px;text-decoration:none}
-.brand:hover{color:#F59F0A;text-decoration:none}
-.brand-dot{width:18px;height:18px;border-radius:50%;background:#F59F0A;flex-shrink:0}
-.topbar-nav{display:flex;align-items:center;gap:20px}
-.nav-link{font-size:13px;color:#737373}
-.nav-link:hover{color:#E5E5E5;text-decoration:none}
-.nav-cta{font-size:12px;font-weight:500;background:rgba(245,159,10,0.12);border:1px solid rgba(245,159,10,0.3);color:#F59F0A;padding:6px 14px;border-radius:6px}
-.nav-cta:hover{background:rgba(245,159,10,0.2);text-decoration:none;color:#F59F0A}
-
+/* ── Nav (matches trustcenter.pro homepage) ───────────────────────────────── */
+.nav{position:sticky;top:0;z-index:200;background:rgba(8,9,11,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 40px;height:64px;display:flex;justify-content:space-between;align-items:center;gap:32px}
+.nav-links{display:flex;align-items:center;gap:32px;font-size:13px}
+.nav-link{color:#9AA1A8;transition:color 0.15s;white-space:nowrap;text-decoration:none}
+.nav-link:hover{color:#F5F7F4;text-decoration:none}
+.nav-link.active{color:#F5F7F4}
+.nav-btn{background:#F59F0A;color:#08090B;border:none;padding:9px 16px;border-radius:7px;font-weight:700;font-size:12.5px;font-family:'JetBrains Mono',ui-monospace,monospace;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.15s}
+.nav-btn:hover{background:#FBBF24;text-decoration:none;color:#08090B}
+@media(max-width:768px){.nav-inner{padding:0 20px;height:56px}.nav-links .nav-link:not(:last-child){display:none}}
 /* ── Page shell ────────────────────────────────────────────────────────────── */
 .page-shell{display:flex;min-height:100vh;padding-top:64px}
 
@@ -313,7 +312,7 @@ ${BASE}
 .article-body hr{border:none;border-top:1px solid #1a1a1a;margin:28px 0}
 
 /* ── TOC ────────────────────────────────────────────────────────────────── */
-.toc{position:sticky;top:72px;background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:16px 18px}
+.toc{position:sticky;top:80px;background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:16px 18px}
 .toc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#404040;margin-bottom:10px}
 .toc-list{margin:0;padding:0;list-style:none}
 .toc-list li{margin-bottom:7px}
