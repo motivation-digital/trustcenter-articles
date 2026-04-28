@@ -7,7 +7,7 @@ echo "Smoke testing: $BASE"
 check() {
   local url="$1" label="$2"
   for i in 1 2 3 4 5; do
-    HTTP=$(curl -s -o /tmp/resp.txt -w "%{http_code}" "$url" || echo "000")
+    HTTP=$(curl -sL -o /tmp/resp.txt -w "%{http_code}" "$url" || echo "000")
     if [ "$HTTP" = "200" ]; then
       echo "OK $label ($HTTP)"
       return 0
@@ -21,6 +21,7 @@ check() {
 }
 
 check "$BASE/health" "/health"
-check "$BASE/articles" "/articles"
+check "$BASE/articles" "/articles (follows redirect)"
+check "$BASE/articles/category/gdpr" "/articles/category/gdpr"
 
 echo "All smoke tests passed."
