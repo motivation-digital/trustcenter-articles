@@ -106,8 +106,14 @@ function sidebar(activeCategory, showSearch) {
 
 function siteFooter() {
   return `<footer class="site-footer">
-  <span>&copy; ${new Date().getFullYear()} Trust Center &mdash; A Motivation Group product</span>
-  <a href="/articles">Articles</a>
+  <div class="footer-left">
+    <a href="https://trustcenter.pro">Trustcenter.pro</a> a member of the Motivation Group Ltd. Reg No. 10105398.<br>
+    Melville Building East, Royal William Yard, Plymouth, PL1 3RP, GB
+  </div>
+  <div class="footer-right">
+    Group VAT Registration: GB 284 6168 72<br>
+    Copyright &copy; 2008 &ndash; 2026 | Motivation Group Ltd. All Rights Reserved.
+  </div>
 </footer>`;
 }
 
@@ -151,7 +157,7 @@ a{color:#F59F0A;text-decoration:none}a:hover{text-decoration:underline}
 .sidebar-link.active{background:rgba(245,159,10,0.08);color:#F59F0A;font-weight:500}
 
 /* ── Main content ────────────────────────────────────────────────────────── */
-.main-content{flex:1;min-width:0}
+.main-content{flex:1;min-width:0;display:flex;flex-direction:column}
 .content-header{padding:18px 32px 14px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .content-header h1{font-size:18px;font-weight:600;color:#F5F7F4;margin:0;letter-spacing:-0.01em}
 .content-header-right{display:flex;align-items:center;gap:12px}
@@ -177,8 +183,9 @@ a{color:#F59F0A;text-decoration:none}a:hover{text-decoration:underline}
 .cat-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;background:rgba(245,159,10,0.12);color:#F59F0A;border:1px solid rgba(245,159,10,0.2)}
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
-.site-footer{padding:18px 32px;border-top:1px solid rgba(255,255,255,0.06);font-size:12px;color:#404040;display:flex;justify-content:space-between;gap:10px}
-.site-footer a{color:#525252}.site-footer a:hover{color:#A3A3A3;text-decoration:none}
+.site-footer{padding:16px 32px;border-top:1px solid rgba(255,255,255,0.06);font-size:11px;color:#404040;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;background:#08090B;margin-top:auto}
+.site-footer a{color:#525252;text-decoration:none}.site-footer a:hover{color:#A3A3A3;text-decoration:none}
+.footer-right{text-align:right}
 .hidden{display:none!important}
 `;
 
